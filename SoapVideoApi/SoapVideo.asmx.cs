@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoapVideoApi.DAO;
+using SoapVideoApi.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,9 +20,15 @@ namespace SoapVideoApi
     {
 
         [WebMethod]
-        public string VideoGamesTitle()
+        public CatalogVideo GetAll()
         {
-            return "Jeux vidéo";
+            return VideoDao.GetAll();
+        }
+
+        [WebMethod]
+        public Video GetById(string id)
+        {
+            return VideoDao.GetById(id);
         }
     }
 }
